@@ -1,3 +1,26 @@
+let bn = document.querySelector('ul li');
+let listItems = bn.children;
+// console.log(listItems);
+
+function handleClick(ev) {
+    // move the id-attribute to the currently clicked button
+    let currentItem = ev.target;
+    // console.log(currentItem);
+
+    // loop through the list of all button
+    for (let i = 0; i < listItems.length; i++) {
+        // https://developer.mozilla.org/en-US/docs/Web/API/Element/hasAttribute
+        // if button contains attribute type of id
+        if (listItems[i].hasAttribute('id')) {
+            // https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute
+            // remove the attribute type of 'id'
+            listItems[i].removeAttribute('id');
+        }
+    }
+
+    currentItem.setAttribute('id', 'active');
+
+
 // GET THE REFERENCES
 const links = document.querySelectorAll(".nav");
 const container = document.querySelector(".dynamic-content");
